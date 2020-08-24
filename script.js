@@ -1,6 +1,6 @@
-var grid = [[0,0,1], [1,0,0],[1,1,1]]
+var grid = [[1,1,1], [1,1,1],[1,1,0]];
 
-var solution = []
+var solution = [['a','a','a'], ['a','a','a'], ['a','a',0]];
 
 var l = 3
 const container = document.getElementById("container");
@@ -25,14 +25,37 @@ function buildGrid() {
         let cell = document.createElement("input");
         container.appendChild(cell).className = "grid-item";
         cell.setAttribute("maxlength", "1");
+        cell.id = a*l + b;
       } else {
         let cell = document.createElement("input");
         container.appendChild(cell).className = "grid-item2";
         cell.setAttribute("maxlength", "0");
+        cell.id = a*l + b;
       }
     }
   }
 }
 
+function check() {
+  console.log("hi");
+  var flag = 1
+  for(i = 0; i < l*l;i++) {
+    var square = document.getElementById(i);
+    console.log(square.value);
+    var x = Math.floor(i/3);
+    var y = i % 3
+    if(square.value != solution[x][y]) {
+      flag = 0;
+      square.style.backgroundColor = "red";
+    } else {
+      square.style.backgroundColor = "white";
+    }
+  }
+  if(flag == 1) {
+    console.log('correct');
+  } else {
+    console.log('incorrect');
+  }
+}
 //makeRows(3, 3);
 buildGrid();
