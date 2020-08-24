@@ -16,21 +16,36 @@ function makeRows(rows, cols) {
   };
 };
 
+var cnt = 0;
 function buildGrid() {
-  container.style.setProperty('--grid-rows', l);
-  container.style.setProperty('--grid-cols', l);
-  for(a = 0; a < l; a++) {
-    for(b = 0; b < l;b++) {
-      if(grid[a][b] == 1) {
+  container.style.setProperty('--grid-rows', l+1);
+  container.style.setProperty('--grid-cols', l+1);
+  for(a = 0; a < l+1; a++) {
+    for(b = 0; b < l+1;b++) {
+      if(a == 0 && b == 0) {
+        let cell = document.createElement("div");
+        container.appendChild(cell).className = "grid-borders";
+        //cell.innerHTML  = 'C-0/R-0';
+      } else if(a == 0) {
+        let cell = document.createElement("div");
+        container.appendChild(cell).className = "grid-borders";
+        cell.innerHTML = 'c' + b.toString();
+      } else if(b == 0) {
+        let cell = document.createElement("div");
+        container.appendChild(cell).className = "grid-borders";
+        cell.innerHTML = 'r' + a.toString();
+      }else if(grid[a-1][b-1] == 1) {
         let cell = document.createElement("input");
         container.appendChild(cell).className = "grid-item";
         cell.setAttribute("maxlength", "1");
-        cell.id = a*l + b;
+        cell.id = cnt;
+        cnt++;
       } else {
         let cell = document.createElement("input");
         container.appendChild(cell).className = "grid-item2";
         cell.setAttribute("maxlength", "0");
-        cell.id = a*l + b;
+        cell.id = cnt;
+        cnt++;
       }
     }
   }
