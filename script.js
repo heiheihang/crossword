@@ -62,7 +62,7 @@ function check() {
     if(square.value != solution[x][y]) {
       flag = 0;
       square.style.backgroundColor = "red";
-    } else {
+    } else if(grid[x][y] == 1){
       square.style.backgroundColor = "white";
     }
   }

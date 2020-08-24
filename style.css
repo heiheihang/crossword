@@ -57,3 +57,27 @@
   width:60px;
   background-color: white;
 }
+
+.hint {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+  font-style: italic;
+  padding-bottom: 3px;
+}
+.hint-section {
+  margin-left: 40px;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 40px;
+  margin-left: 50px;
+  cursor: pointer;
+  border-radius: 8px;
+}
